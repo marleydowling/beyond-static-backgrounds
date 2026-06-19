@@ -1,0 +1,15 @@
+name: beyond-static-backgrounds
+channels:
+  - conda-forge
+dependencies:
+  - python=3.11
+  - pandas
+  - numpy
+  - matplotlib
+  - pyyaml
+  - openpyxl
+  - pip
+  - pip:
+      - bw2data==4.5.3
+      - bw2calc==2.2.2
+      - premise==2.3.2
