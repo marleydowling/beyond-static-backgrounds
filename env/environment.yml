@@ -10,6 +10,10 @@ dependencies:
   - openpyxl
   - pip
   - pip:
+      - "numpy<2.0"
+      - "scipy<1.14"
+      - "peewee<4"
       - bw2data==4.5.3
       - bw2calc==2.2.2
+      - bw2io==0.9.11
       - premise==2.3.2

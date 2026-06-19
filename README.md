@@ -1,54 +1,59 @@
 # Beyond Static Backgrounds
 
-This repository accompanies the deterministic journal-paper workflow for a prospective consequential life cycle assessment (pCLCA) framework with explicit end-of-life modelling and application to a curtain wall.
+This repository supports the deterministic journal-paper workflow for a prospective consequential life cycle assessment (pCLCA) framework with explicit end-of-life modelling and application to building systems.
 
 ## Repository purpose
 
 The repository has two linked roles:
 
 1. **General method framework**
-   - receiving-system definition
-   - displaced-market and marginal-supplier logic
-   - substitution-rule implementation
-   - deterministic post-processing for end-of-life comparisons
+
+   * baseline background preparation
+   * scenario-consistent background construction
+   * displaced-market and marginal-supplier logic
+   * substitution-rule implementation
+   * deterministic post-processing for end-of-life comparisons
 
 2. **Case-study application**
-   - deterministic application to the aluminium subsystem of a Canadian stick-built mass timber curtain wall
-   - case-specific scripts, configurations, results, and figure source data
 
-## Paper-facing scope
+   * deterministic application to the aluminium subsystem of a Canadian curtain wall
+   * case-specific scripts, configurations, results, and figure source data
 
-This repository is aligned to the **deterministic journal-paper scope**. It includes:
-- the general pCLCA method components required for the paper
-- the curtain-wall aluminium case-study implementation
-- machine-readable deterministic climate-change results
-- machine-readable cross-indicator screening outputs
-- case-study figure source data and processed inputs needed to interpret the application
+## Current repository scope
 
-This repository does **not** include:
-- the broader three-scenario prospective comparison used elsewhere in the thesis workflow
-- parameter-uncertainty propagation
-- sensitivity or Monte Carlo analysis
-- licensed background databases, including ecoinvent-derived and premise-generated background systems
-- the journal-submitted Online Resources, which are provided separately with the paper
+The current repository development is focused first on the **methods layer**, especially the background-construction workflow required for deterministic pCLCA. The initial scripted workflow is organized to align with the method steps in the journal paper:
 
-## Study focus
+* **Step 1** — establish baseline conventions and import baseline databases
+* **Step 2** — construct, version, freeze, audit, and inspect scenario-consistent prospective backgrounds
 
-The paper evaluates explicit end-of-life substitution claims for the aluminium subsystem of a curtain wall. The declared building-scale unit is **1 m² of installed curtain wall**, and the representative aluminium content is **3.666 kg Al/m²**. The main route comparison in the paper is reported on a **1 kg Al** basis. The deterministic comparison covers two receiving systems:
-- **Contemporary (2025)**
-- **Prospective SSP2-M (2050)**
+The case-study layer will be added after the methods layer is stabilized and cleaned for public release.
 
-The retained end-of-life routes are:
-- landfill
-- direct reuse
-- conventional recycling via remelting
-- multi-step friction stir consolidation (MS-FSC)
-- aluminium hydrolysis to hydrogen, with conditional aluminium hydroxide handling
+## Included in the public repository
+
+The intended public repository includes:
+
+* reusable method scripts in `framework/`
+* configuration files required to reproduce the deterministic workflow
+* case-study application files that are suitable for public release
+* environment specification for the software stack
+* repository documentation and archive notes
+
+## Excluded from the public repository
+
+The public repository does **not** include:
+
+* licensed background databases, including ecoinvent-derived and premise-generated Brightway databases
+* private IAM source files that cannot be redistributed
+* local testing utilities and scratch files
+* temporary build helpers used only to scaffold or reorganize the repository
+* unpublished case-study scripts or outputs that are still under active restructuring
+* uncertainty propagation and sensitivity workflows outside the deterministic journal-paper scope
 
 ## Repository structure
 
 ```text
 framework/
+  backgrounds/
   market_definition/
   marginal_supplier_logic/
   substitution_rules/
@@ -57,19 +62,56 @@ framework/
 
 case_studies/
   curtain_wall_aluminium/
-    configs/
-    scripts/
-    inputs_processed/
-    results/
-    figures/
 
 env/
 docs/
 ```
 
+## Methods-layer design principles
+
+This repository is designed to be transparent about what is original to this work and what depends on established external tools.
+
+The repository **does provide**:
+
+* orchestration scripts around Brightway and premise
+* configuration-driven workflow control
+* audit, versioning, and freeze logic
+* explicit setup for deterministic background construction
+* downstream consequential logic specific to this methodological framework
+
+The repository **does not claim authorship of**:
+
+* premise’s internal IAM–LCI transformation engine
+* Brightway’s core infrastructure
+* ecoinvent data
+* IAM source data
+
+Those external tools and datasets are treated as dependencies and are documented accordingly.
+
+## Software environment
+
+The tested repository-development environment uses:
+
+* Python 3.11
+* bw2data 4.5.3
+* bw2calc 2.2.2
+* bw2io 0.9.11
+* premise 2.3.2
+* numpy < 2.0
+* scipy < 1.14
+* peewee < 4
+
+See `env/environment.yml` for the pinned environment specification.
+
+## Local development versus public repository content
+
+Local-only development material should be kept outside the tracked repository content. In this project, local probes, scratch files, exports, and setup utilities are intended to live under `_local/`, which is ignored by git.
+
+The public repository should remain focused on method scripts, documented configuration, and release-appropriate case-study material.
+
 ## Data and code availability
 
-Case-study code, configuration files, processed foreground definitions, deterministic result exports, and supporting case-study materials are archived in a versioned DOI-bearing repository associated with this GitHub repository.
+Case-study code, configuration files, processed foreground definitions, deterministic result exports, and release-appropriate supporting materials are intended to be archived in a versioned DOI-bearing repository associated with this GitHub repository.
 
 Repository URL: https://github.com/marleydowling/beyond-static-backgrounds
 
@@ -80,15 +122,18 @@ Licensed background databases are **not redistributed** here.
 ## Reproducibility boundary
 
 A reader with:
-- this repository,
-- the submitted supplementary files associated with the paper,
-- and licensed access to the required background databases
 
-should be able to inspect and reconstruct the custom deterministic workflow used in the journal paper.
+* this repository,
+* the documented software environment,
+* licensed access to the required external background datasets,
+* and the required IAM inputs where applicable
+
+should be able to reconstruct the deterministic workflow used in the journal paper.
 
 ## Citation
 
 Please cite:
+
 1. the associated journal paper
 2. the DOI-minted repository release for the exact archived version used
 
