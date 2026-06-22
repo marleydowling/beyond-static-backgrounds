@@ -1,0 +1,64 @@
+# Example background-pipeline config
+#
+# Current methods-only repository workflow:
+# - Step 1A rebuilds the version-aligned biosphere database
+# - Step 1B imports the contemporary consequential baseline using Brightway's official ecoinvent importer
+# - Step 2 builds a deterministic prospective background using premise
+#
+# Example shown below:
+#   model: image          # change to remind, tiam-ucl, etc. if supported by premise + your IAM files
+#   pathway: SSP2-M       # change to SSP1-VLLO, SSP5-H, or another supported pathway
+#   foresight_mode: perf  # change to myop for myopic foresight
+
+project:
+  name: bss_repo_dev
+  brightway2_dir: C:\brightway_workspace\beyond_static_backgrounds\brightway_base
+
+source:
+  kind: official_release
+  ecospold_datasets: C:\brightway_workspace\sources\ecoinvent_ecospold\ei_3.10.1_consequential\conseq\datasets
+  source_db: ecoinvent-3.10.1-consequential
+  source_version: "3.10.1"
+  system_model: consequential
+  biosphere_name: ecoinvent-3.10-biosphere
+
+scenario:
+  model: image
+  pathway: SSP2-M
+  year: 2050
+  foresight_mode: perf
+  iam_output_dir: C:\brightway_workspace\sources\premise_iam_output_files
+  iam_key_env_var: PREMISE_KEY
+
+premise:
+  sectors_to_update: [electricity, fuels]
+  use_cached_database: true
+  use_cached_inventories: true
+  use_multiprocessing: false
+  use_absolute_efficiency: false
+  quiet: false
+  overwrite_existing: false
+  delete_vacuum_on_overwrite: false
+  stop_on_error: true
+  min_activity_count_ok: 15000
+  strict_require_system_args: true
+
+uncertainty:
+  keep_all_uncertainty: true
+  keep_source_db_uncertainty: true
+  keep_imports_uncertainty: true
+  strict_require_uncertainty_support: false
+
+outputs:
+  run_log_dir: C:\brightway_workspace\beyond_static_backgrounds\logs
+  manifests_dir: C:\brightway_workspace\beyond_static_backgrounds\logs\background_manifests
+  target_db_name: null
+  audit_output_dir: C:\brightway_workspace\beyond_static_backgrounds\logs\background_audit\SSP2M_PERF
+
+relink:
+  roi_label: CAN
+  roi_matches: [CAN, CA, Canada]
+  na_matches: [NA, RNA, North America]
+  dry_run: true
+  source_db_name: prospective_conseq_IMAGE_SSP2M_2050_PERF
+  work_db_name: prospective_conseq_IMAGE_SSP2M_2050_PERF_work

@@ -1,27 +1,29 @@
 # Archive Manifest
 
-This repository is the fixed paper-facing implementation record for the deterministic journal-paper workflow.
+This repository is intended to become a fixed **methods-only** implementation record for the deterministic pCLCA workflow.
 
 Repository URL: https://github.com/marleydowling/beyond-static-backgrounds
 DOI: DOI_TO_BE_INSERTED_AFTER_RELEASE
 
 ## Included
 
-- framework code used for explicit receiving-system and substitution modelling
-- curtain-wall case-study configs and scripts
-- deterministic result tables
-- cross-indicator screening tables
-- case-study figure source data needed for the journal paper
+- reusable methods scripts for baseline and prospective background construction
+- reusable scaffolding for displaced-market and marginal-mix construction
+- reusable scaffolding for foreground route and Module D execution
+- versioned configuration files for the deterministic workflow
+- environment specification for the tested software stack
+- repository documentation and setup guidance
 
 ## Excluded
 
 - licensed background databases
-- raw ecoinvent distributions
-- raw premise-generated databases
-- journal-submitted Online Resources
-- thesis-only uncertainty and sensitivity workflows
-- thesis-only multi-scenario deterministic outputs not used in the paper
+- imported ecoinvent databases
+- premise-generated Brightway databases
+- submitted online resources
+- local probes, scratch files, exports, and setup helpers
+- case-study-specific implementation materials
+- Step 5 uncertainty propagation workflows beyond current repository scope
 
 ## Release policy
 
-Each manuscript-cited version should be tagged and archived through Zenodo so that a DOI is minted for the exact release used in the paper.
+Each manuscript-cited version should be tagged and archived through Zenodo so that a DOI is minted for the exact repository release used in the paper.

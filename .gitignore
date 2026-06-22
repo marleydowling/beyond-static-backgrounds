@@ -54,11 +54,15 @@ bw_projects/
 premise*/**/*
 ecoinvent*/**/*
 
+# Local-only development utilities and run artefacts
+/_local/
+/framework/backgrounds/archive*/
+/framework/backgrounds/archive/
+/framework/backgrounds/archive_old/
+
 # Do not commit licensed databases or proprietary exports
 data/raw/licensed/
-case_studies/curtain_wall_aluminium/inputs_processed/licensed/
 
-
-# Do not commit repo build files
-build_pclca_paper_repo.py
-update_beyond_static_backgrounds_repo.py
+# Do not commit one-off repo rebuild helpers
+/update_methods_only_repo.py
+/rebuild_methods_repo_scaffold.py

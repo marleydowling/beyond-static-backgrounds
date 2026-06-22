@@ -1,21 +1,21 @@
 cff-version: 1.2.0
-title: "Beyond Static Backgrounds: prospective consequential LCA for explicit end-of-life modelling in buildings"
+title: "Beyond Static Backgrounds: methods for deterministic prospective consequential LCA with explicit end-of-life substitution modelling"
 message: "If you use this repository, please cite the archived software record and the associated paper."
 type: software
 authors:
   - family-names: "Dowling"
     given-names: "Marley Kathleen Loft"
     affiliation: "University of Waterloo"
-preferred-citation:
-  type: article
-  title: "Prospective consequential LCA for explicit end-of-life modelling in buildings: framework and curtain-wall application"
-  authors:
-    - family-names: "Dowling"
-      given-names: "Marley Kathleen Loft"
-  journal: "TO BE UPDATED AFTER ACCEPTANCE"
 repository-code: "https://github.com/marleydowling/beyond-static-backgrounds"
 url: "https://github.com/marleydowling/beyond-static-backgrounds"
 license: "MIT"
 version: "v1.0.0"
 doi: "10.0000/REPLACE_WITH_ZENODO_DOI"
 date-released: "REPLACE_WITH_RELEASE_DATE"
+preferred-citation:
+  type: article
+  title: "Prospective consequential LCA for explicit end-of-life modelling in buildings"
+  authors:
+    - family-names: "Dowling"
+      given-names: "Marley Kathleen Loft"
+  journal: "TO BE UPDATED AFTER ACCEPTANCE"

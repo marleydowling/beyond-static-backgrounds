@@ -1,32 +1,16 @@
 # Framework
 
-This directory contains the reusable method components used by the deterministic journal-paper workflow.
+This directory contains the reusable methods-layer code for the repository.
 
-## Intended contents
+The framework is intended to hold method components that can be documented and archived independently of any one case study.
 
-- `market_definition/`
-  - displaced-product market definitions
-  - receiving-system market-boundary logic
-  - product-to-market mapping helpers
+Subdirectories:
 
-- `marginal_supplier_logic/`
-  - marginal supplier mix construction
-  - supplier-share tables
-  - market-response logic used by explicit substitution claims
-
-- `substitution_rules/`
-  - like-for-like substitution rules
-  - equivalence and conditioning logic
-  - explicit Module D implementation rules
-
-- `postprocess/`
-  - deterministic summarizers
-  - break-even calculations
-  - cross-indicator screening helpers
-
-- `utils/`
-  - shared helper functions used across the repository
-
-## Boundary
-
-This folder should contain reusable framework logic only. Curtain-wall-specific scripts, inputs, and outputs should remain in `case_studies/curtain_wall_aluminium/`.
+- `backgrounds/` — Step 1 and Step 2 background workflows
+- `market_definition/` — Step 3 displaced-market definitions and registers
+- `marginal_supplier_logic/` — Step 3 marginal supplier representations and utilities
+- `foreground_routes/` — Step 4 route wrappers and linking logic
+- `substitution_rules/` — Step 4 explicit substitution rules and Module D execution
+- `postprocess/` — deterministic result formatting, screening, and audit summaries
+- `schemas/` — machine-readable CSV templates and schema guidance
+- `examples/` — small illustrative example inputs only

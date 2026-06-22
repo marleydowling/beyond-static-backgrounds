@@ -1,10 +1,9 @@
-name: beyond-static-backgrounds
+name: bss-repo-dev
 channels:
   - conda-forge
 dependencies:
   - python=3.11
   - pandas
-  - numpy
   - matplotlib
   - pyyaml
   - openpyxl
@@ -13,6 +12,7 @@ dependencies:
       - "numpy<2.0"
       - "scipy<1.14"
       - "peewee<4"
+      - "xarray>=2024.10.0"
       - bw2data==4.5.3
       - bw2calc==2.2.2
       - bw2io==0.9.11

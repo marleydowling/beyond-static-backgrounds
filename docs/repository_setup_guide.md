@@ -1,52 +1,79 @@
-# Repository setup guide
+# Repository Setup Guide
 
-## 1. Create the scaffold
-Run the repository structure script from the parent directory.
+This guide documents the current methods-only repository setup.
 
-## 2. Fill the root files
-Update:
-- `README.md`
-- `CITATION.cff`
-- `LICENSE`
-- `env/environment.yml`
+## 1. Clone the repository
 
-## 3. Populate the case-study folders
+Clone the repository and work from the repository root.
 
-### Put these into `case_studies/curtain_wall_aluminium/scripts/`
-- Resource 2 builder script
-- Resource 3 builder script
-- deterministic post-processing scripts used in the paper
+## 2. Create the software environment
 
-### Put these into `case_studies/curtain_wall_aluminium/results/`
-- deterministic exported tables
-- cross-indicator screening tables
+```bash
+conda env create -f env/environment.yml
+conda activate bss-repo-dev
+```
 
-### Put these into `case_studies/curtain_wall_aluminium/figures/`
-- figure source tables used to generate manuscript figures
+## 3. Local-only working material
 
-### Put these into `case_studies/curtain_wall_aluminium/si/`
-- `resource1_si/` — final SI PDF and source text
-- `resource2_deterministic_results/` — final paper-facing CSVs
-- `resource3_cross_indicator_screening/` — final paper-facing CSVs
+Keep probes, scratch files, exports, helper scripts, and run outputs under `_local/`. This directory is gitignored and is not part of the public repository.
 
-## 4. Mirror final paper-facing files
-Copy the final released versions into:
-- `online_resources/resource1_si/`
-- `online_resources/resource2_deterministic_results/`
-- `online_resources/resource3_cross_indicator_screening/`
+Recommended local-only layout:
 
-## 5. Initialize git
-From the repository root:
-- `git init`
-- `git add .`
-- `git commit -m "Initial deterministic paper repository"`
+```text
+_local/
+  tests/
+  runs/
+  logs/
+  scratch/
+  setup/
+```
 
-## 6. Create GitHub repo and push
-- create the empty GitHub repository
-- add the remote
-- push `main`
+## 4. Brightway workspace
 
-## 7. Archive the first release
-- connect the GitHub repo to Zenodo
-- create a GitHub release (for example `v1.0.0`)
-- use the minted DOI in the manuscript and SI
+Create a dedicated Brightway data root for repository development, for example:
+
+- `C:\brightway_workspace\beyond_static_backgrounds\brightway_base`
+- `C:\brightway_workspace\beyond_static_backgrounds\logs`
+
+## 5. ecoinvent access
+
+The baseline contemporary import uses Brightway's official ecoinvent release importer.
+
+Provide valid ecoinvent access credentials either through:
+- `EI_USERNAME`
+- `EI_PASSWORD`
+
+or through a working local `ecoinvent_interface` configuration.
+
+Do **not** store credentials in tracked repository files.
+
+## 6. premise and IAM access
+
+Prospective background construction is implemented through `premise`.
+
+If your local workflow requires an IAM access key, define it through the environment variable named in the YAML config, for example:
+- `PREMISE_KEY`
+
+Do **not** store keys in tracked repository files.
+
+## 7. Working example config
+
+The working example config is:
+
+- `framework/backgrounds/configs/example_background_pipeline.yaml`
+
+## 8. Current implementation status
+
+### Implemented
+- Step 1A: rebuild version-aligned biosphere
+- Step 1B: import contemporary consequential baseline using Brightway's official importer
+- Step 2: prospective background construction scaffolding using premise
+
+### Scaffolded for next development
+- Step 3: displaced-market registers and marginal-supplier logic
+- Step 4: route wrappers and explicit Module D execution
+
+## 9. Notes on testing
+
+Public repository code should remain focused on methods scripts and documentation.
+Functional run testing should be performed from `_local/tests/` and `_local/runs/` so that logs and outputs remain untracked.
