@@ -1,6 +1,6 @@
 # Archive Manifest
 
-This repository is intended to serve as a fixed **methods-only** implementation record for the deterministic pCLCA workflow.
+This repository is intended to become a fixed **methods-only** implementation record for the deterministic pCLCA workflow.
 
 Repository URL: https://github.com/marleydowling/beyond-static-backgrounds
 
@@ -9,7 +9,7 @@ Repository URL: https://github.com/marleydowling/beyond-static-backgrounds
 - reusable methods scripts for baseline and prospective background construction
 - reusable scaffolding for displaced-market and marginal-mix construction
 - reusable scaffolding for foreground route and Module D execution
-- versioned public templates and configuration examples for the deterministic workflow
+- versioned configuration files for the deterministic workflow
 - environment specification for the tested software stack
 - repository documentation and setup guidance
 
@@ -21,7 +21,7 @@ Repository URL: https://github.com/marleydowling/beyond-static-backgrounds
 - submitted online resources
 - local probes, scratch files, exports, and setup helpers
 - case-study-specific implementation materials
-- Step 5 uncertainty propagation workflows beyond the current repository scope
+- Step 5 uncertainty propagation workflows beyond current repository scope
 
 ## Release policy
 
