@@ -1,22 +1,25 @@
 # Example background-pipeline config
 #
-# Current methods-only repository workflow:
-# - Step 1A rebuilds the version-aligned biosphere database
-# - Step 1B imports the contemporary consequential baseline using Brightway's official ecoinvent importer
-# - Step 2 builds a deterministic prospective background using premise
+# This file is a tracked public template.
+# Copy it to a local, gitignored file (for example:
+# _local/setup/background_pipeline.local.yaml) and replace the placeholder
+# values with your own machine-specific settings.
 #
-# Example shown below:
-#   model: image          # change to remind, tiam-ucl, etc. if supported by premise + your IAM files
-#   pathway: SSP2-M       # change to SSP1-VLLO, SSP5-H, or another supported pathway
-#   foresight_mode: perf  # change to myop for myopic foresight
+# Example defaults shown below match the paper-facing central prospective case:
+#   model: image
+#   pathway: SSP2-M
+#   year: 2050
+#   foresight_mode: perf
+#
+# Change these values as needed for your own local workflow.
 
 project:
-  name: bss_repo_dev
-  brightway2_dir: C:\brightway_workspace\beyond_static_backgrounds\brightway_base
+  name: YOUR_BRIGHTWAY_PROJECT_NAME
+  brightway2_dir: PATH_TO_BRIGHTWAY_DATA_ROOT
 
 source:
-  kind: official_release
-  ecospold_datasets: C:\brightway_workspace\sources\ecoinvent_ecospold\ei_3.10.1_consequential\conseq\datasets
+  kind: ecospold
+  ecospold_datasets: PATH_TO_ECOINVENT_ECOSPOLD_DATASETS
   source_db: ecoinvent-3.10.1-consequential
   source_version: "3.10.1"
   system_model: consequential
@@ -27,7 +30,7 @@ scenario:
   pathway: SSP2-M
   year: 2050
   foresight_mode: perf
-  iam_output_dir: C:\brightway_workspace\sources\premise_iam_output_files
+  iam_output_dir: PATH_TO_LOCAL_IAM_OUTPUTS
   iam_key_env_var: PREMISE_KEY
 
 premise:
@@ -50,10 +53,10 @@ uncertainty:
   strict_require_uncertainty_support: false
 
 outputs:
-  run_log_dir: C:\brightway_workspace\beyond_static_backgrounds\logs
-  manifests_dir: C:\brightway_workspace\beyond_static_backgrounds\logs\background_manifests
+  run_log_dir: PATH_TO_LOCAL_LOG_DIR
+  manifests_dir: PATH_TO_LOCAL_MANIFEST_DIR
   target_db_name: null
-  audit_output_dir: C:\brightway_workspace\beyond_static_backgrounds\logs\background_audit\SSP2M_PERF
+  audit_output_dir: PATH_TO_LOCAL_AUDIT_DIR
 
 relink:
   roi_label: CAN

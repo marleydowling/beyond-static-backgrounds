@@ -1,1 +1,1 @@
-market_id,displaced_product_name,specification_basis,geography,booking_year,representation_type,notes
+market_id,market_role,route_or_use,receiving_system,booking_year,scenario,credited_output,displaced_product,market_geography,representation_method,representation_category,method_basis,provider_or_proxy_label,source_reference,notes

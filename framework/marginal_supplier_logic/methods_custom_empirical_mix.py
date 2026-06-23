@@ -4,7 +4,7 @@ from typing import Dict, List
 
 import pandas as pd
 
-from ._common import normalize_shares, coalesce_numeric, safe_text
+from ._common import normalize_shares, to_bool, coalesce_numeric, safe_text
 
 
 def build_market(
@@ -15,37 +15,38 @@ def build_market(
     df = supplier_rows.copy()
     if df.empty:
         raise ValueError(f"No supplier rows available for market_id={market_row['market_id']}")
-    annual_change = coalesce_numeric(df, ["annual_change_fraction"], default=0.0)
-    replacement = coalesce_numeric(df, ["replacement_rate_fraction"], default=0.0)
-    if "net_annual_trend_fraction" in df.columns and pd.to_numeric(df["net_annual_trend_fraction"], errors="coerce").notna().any():
-        net_trend = pd.to_numeric(df["net_annual_trend_fraction"], errors="coerce").fillna(0.0)
+    if "included_in_marginal_set" in df.columns:
+        incl = df["included_in_marginal_set"].map(to_bool)
+        included = df.loc[incl == True].copy()
     else:
-        net_trend = annual_change + replacement
+        included = df.copy()
 
-    if "net_annual_change" in df.columns and pd.to_numeric(df["net_annual_change"], errors="coerce").notna().any():
-        net_change = pd.to_numeric(df["net_annual_change"], errors="coerce").fillna(0.0)
+    explicit_share = pd.to_numeric(included.get("marginal_share"), errors="coerce") if "marginal_share" in included.columns else pd.Series(dtype=float)
+
+    if not included.empty and explicit_share.notna().any() and float(explicit_share.fillna(0).sum()) > 0:
+        included["resolved_share"] = normalize_shares(explicit_share)
+        resolution_basis = "explicit_marginal_share"
     else:
-        base = coalesce_numeric(df, ["start_value"], default=0.0)
-        net_change = net_trend * base
-
-    positive = df.loc[net_change > 0].copy()
-    if positive.empty:
-        best_idx = net_change.idxmax()
-        positive = df.loc[[best_idx]].copy()
-        resolution_basis = "least_decline_fallback"
-        weights = coalesce_numeric(positive, ["start_value"], default=1.0)
-    else:
-        resolution_basis = "positive_net_annual_change"
-        weights = net_change.loc[positive.index]
-
-    positive["resolved_share"] = normalize_shares(pd.Series(weights, index=positive.index))
+        weights = coalesce_numeric(
+            included,
+            ["positive_delta_value", "net_annual_change", "delta_value", "start_value"],
+            default=0.0,
+        )
+        positive = weights.clip(lower=0)
+        if float(positive.sum()) > 0:
+            included["resolved_share"] = normalize_shares(positive)
+            resolution_basis = "positive_delta_normalization"
+        else:
+            fallback = coalesce_numeric(included, ["start_value"], default=0.0)
+            included["resolved_share"] = normalize_shares(fallback)
+            resolution_basis = "fallback_start_value_normalization"
 
     share_rows: List[Dict[str, object]] = []
-    for _, row in positive.iterrows():
+    for _, row in included.iterrows():
         share_rows.append(
             {
                 "market_id": market_row["market_id"],
-                "representation_method": "crr_screen",
+                "representation_method": "custom_empirical_mix",
                 "supplier_id": safe_text(row.get("supplier_id") or row.get("supplier_name")),
                 "supplier_name": safe_text(row.get("supplier_name")),
                 "technology_or_mechanism": safe_text(row.get("technology_or_mechanism")),
@@ -60,7 +61,7 @@ def build_market(
     return {
         "summary": {
             "market_id": market_row["market_id"],
-            "resolved_method": "crr_screen",
+            "resolved_method": "custom_empirical_mix",
             "resolution_basis": resolution_basis,
             "share_count": len(share_rows),
             "share_sum": float(sum(r["resolved_share"] for r in share_rows)),

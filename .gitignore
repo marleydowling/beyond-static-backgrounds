@@ -60,9 +60,7 @@ ecoinvent*/**/*
 /framework/backgrounds/archive/
 /framework/backgrounds/archive_old/
 
-# Do not commit licensed databases or proprietary exports
+# Do not commit licensed or machine-specific data
 data/raw/licensed/
-
-# Do not commit one-off repo rebuild helpers
-/update_methods_only_repo.py
-/rebuild_methods_repo_scaffold.py
+export/
+missing_classifications.csv

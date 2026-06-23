@@ -1,0 +1,5 @@
+route_id,route_name,c34_score,stage_d_score,net_score,notes
+CR_2025,Conventional recycling 2025,REPLACE_C34,REPLACE_STAGE_D,REPLACE_NET,Populate with your local primary-indicator decomposition result
+CR_2050,Conventional recycling 2050,REPLACE_C34,REPLACE_STAGE_D,REPLACE_NET,Populate with your local primary-indicator decomposition result
+MSFSC_2025,MS-FSC 2025,REPLACE_C34,REPLACE_STAGE_D,REPLACE_NET,Populate with your local primary-indicator decomposition result
+MSFSC_2050,MS-FSC 2050,REPLACE_C34,REPLACE_STAGE_D,REPLACE_NET,Populate with your local primary-indicator decomposition result

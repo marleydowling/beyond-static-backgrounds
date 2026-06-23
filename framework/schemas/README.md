@@ -1,5 +1,13 @@
 # Schemas
 
-This directory contains starter CSV templates for the generic Step 3 and Step 4 workflow.
+These starter CSV templates define the Step 3 register structure used by the Python builder.
 
-These files are templates and examples, not case-study data.
+Core files:
+- `displaced_markets_template.csv`
+- `marginal_mix_rules_template.csv`
+- `supplier_candidates_template.csv`
+- `provider_proxy_map_template.csv`
+- `overlay_rules_template.csv`
+
+The templates are intentionally generic.
+The working example in `framework/examples/step3_recycling_central_case_example/` provides a populated example based on the paper-facing central case subset.

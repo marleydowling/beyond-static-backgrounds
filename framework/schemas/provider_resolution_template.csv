@@ -1,0 +1,5 @@
+object_type,object_id,target_database,target_code,target_name,target_reference_product,target_location,notes
+burden_proxy,AL_RECYCLING_BURDEN_PROXY_CA,LICENSED_DB_NAME,ACTIVITY_CODE,Exact internal activity name,reference product,location,Local-only provider mapping for exact burden-side link
+burden_proxy,AL_RECYCLING_BURDEN_PROXY_SSP2M,LICENSED_DB_NAME,ACTIVITY_CODE,Exact internal activity name,reference product,location,Local-only provider mapping for exact burden-side link
+burden_proxy,MSFSC_BURDEN_PROXY_CA,LICENSED_DB_NAME,ACTIVITY_CODE,Exact internal activity name,reference product,location,Local-only provider mapping for exact burden-side link
+burden_proxy,MSFSC_BURDEN_PROXY_SSP2M,LICENSED_DB_NAME,ACTIVITY_CODE,Exact internal activity name,reference product,location,Local-only provider mapping for exact burden-side link

@@ -1,15 +1,22 @@
 # Market definition
 
-This directory will hold Step 3 code for displaced-market definition.
+This directory contains the Step 3 market-register loader and validator.
 
-Core design goal:
-- define displaced markets through machine-readable registers rather than hard-coded case-study scripts
+Step 3 separates:
+- the **scenario-conditioned background** from Step 2, and
+- the **explicit displaced-market and marginal-supplier representation** used for consequential substitution.
 
-Planned inputs:
-- displaced market register
-- supplier candidate register
-- market notes / source notes
+The public repo design is intentionally register-driven:
+- machine-readable market table
+- machine-readable method-rule table
+- machine-readable supplier candidate table
+- machine-readable proxy table
+- machine-readable overlay table
 
-Planned outputs:
-- validated market register
-- normalized market-definition objects
+This allows the same Python logic to support:
+- inherited background mix
+- custom empirical mix
+- CRR screen
+- Weidema-style heuristic
+- proxy provider
+- prospective overlay

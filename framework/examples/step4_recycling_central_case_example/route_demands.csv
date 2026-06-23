@@ -1,0 +1,5 @@
+route_id,activity_code,demand_amount,notes
+CR_2025,route::CR_2025,1.0,Default route demand for conventional recycling 2025
+CR_2050,route::CR_2050,1.0,Default route demand for conventional recycling 2050
+MSFSC_2025,route::MSFSC_2025,1.0,Default route demand for MS-FSC 2025
+MSFSC_2050,route::MSFSC_2050,1.0,Default route demand for MS-FSC 2050

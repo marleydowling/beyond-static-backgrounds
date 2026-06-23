@@ -1,1 +1,1 @@
-market_id,method,window_start,window_end,crr_threshold,allow_imports,fallback_rule,source_reference
+market_id,method,identity_source_market_id,modernity_threshold,replacement_rate_default,fallback_rule,normalize_basis,background_source_db,provider_or_proxy_label,source_reference,notes

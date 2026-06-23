@@ -1,0 +1,2 @@
+route_id,route_name,c34_activity_code,stage_d_activity_code,net_activity_code,notes
+ROUTE_ID,Example route,ACTIVITY_CODE_FOR_C34,ACTIVITY_CODE_FOR_STAGE_D,ACTIVITY_CODE_FOR_NET,Local map from Step 4C results to decomposition roles

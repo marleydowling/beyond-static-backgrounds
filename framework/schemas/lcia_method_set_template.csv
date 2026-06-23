@@ -1,0 +1,3 @@
+method_id,is_primary,method_tuple_json,notes
+primary_indicator,Yes,"[\"REPLACE_WITH_LOCAL_METHOD_COMPONENT_1\", \"REPLACE_WITH_LOCAL_METHOD_COMPONENT_2\", \"REPLACE_WITH_LOCAL_METHOD_COMPONENT_3\"]",Set this to your local primary LCIA method tuple.
+supplementary_indicator_1,No,"[\"REPLACE_WITH_LOCAL_METHOD_COMPONENT_1\", \"REPLACE_WITH_LOCAL_METHOD_COMPONENT_2\", \"REPLACE_WITH_LOCAL_METHOD_COMPONENT_3\"]",Set this to a supplementary LCIA method tuple.

@@ -1,0 +1,3 @@
+method_id,is_primary,method_tuple_json,notes
+primary_indicator,Yes,"[\"REPLACE_WITH_LOCAL_METHOD_COMPONENT_1\", \"REPLACE_WITH_LOCAL_METHOD_COMPONENT_2\", \"REPLACE_WITH_LOCAL_METHOD_COMPONENT_3\"]",Replace with the local primary LCIA method tuple available in your Brightway project.
+supplementary_indicator_1,No,"[\"REPLACE_WITH_LOCAL_METHOD_COMPONENT_1\", \"REPLACE_WITH_LOCAL_METHOD_COMPONENT_2\", \"REPLACE_WITH_LOCAL_METHOD_COMPONENT_3\"]",Replace with a local supplementary LCIA method tuple.

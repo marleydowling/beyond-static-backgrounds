@@ -1,0 +1,2 @@
+route_id,route_name,c34_score,stage_d_score,net_score,notes
+ROUTE_ID,Example route,REPLACE_C34,REPLACE_STAGE_D,REPLACE_NET,Use primary-indicator decomposition values from your local model run

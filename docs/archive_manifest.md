@@ -1,16 +1,15 @@
 # Archive Manifest
 
-This repository is intended to become a fixed **methods-only** implementation record for the deterministic pCLCA workflow.
+This repository is intended to serve as a fixed **methods-only** implementation record for the deterministic pCLCA workflow.
 
 Repository URL: https://github.com/marleydowling/beyond-static-backgrounds
-DOI: DOI_TO_BE_INSERTED_AFTER_RELEASE
 
 ## Included
 
 - reusable methods scripts for baseline and prospective background construction
 - reusable scaffolding for displaced-market and marginal-mix construction
 - reusable scaffolding for foreground route and Module D execution
-- versioned configuration files for the deterministic workflow
+- versioned public templates and configuration examples for the deterministic workflow
 - environment specification for the tested software stack
 - repository documentation and setup guidance
 
@@ -22,8 +21,8 @@ DOI: DOI_TO_BE_INSERTED_AFTER_RELEASE
 - submitted online resources
 - local probes, scratch files, exports, and setup helpers
 - case-study-specific implementation materials
-- Step 5 uncertainty propagation workflows beyond current repository scope
+- Step 5 uncertainty propagation workflows beyond the current repository scope
 
 ## Release policy
 
-Each manuscript-cited version should be tagged and archived through Zenodo so that a DOI is minted for the exact repository release used in the paper.
+Each manuscript-cited version may be tagged and archived through a release workflow chosen by the author. Where a DOI-backed software archive is created, the manuscript should cite the exact archived release used for the paper.

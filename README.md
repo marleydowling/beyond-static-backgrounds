@@ -7,154 +7,80 @@ It is intended to provide reusable workflow templates and methodological scaffol
 1. **Step 1 — baseline conventions and contemporary reference background**
 2. **Step 2 — scenario-consistent prospective background construction**
 3. **Step 3 — displaced-market definition and marginal-supplier representation**
-4. **Step 4 — foreground route modelling and explicit Module D execution**
+4. **Step 4 — foreground route materialization and explicit substitution-governance scaffolding**
+5. **Post-processing — deterministic indicators, sign screens, break-even scaling, and dominance diagnostics**
 
-The repository is **not** intended to be a journal supplementary-information archive or a paper-specific case-study package. Those records belong in submitted online resources and DOI-linked archive materials.
+## Scope and boundary
 
-## Repository scope
+This is a **public methods scaffold**, not a redistribution of licensed background data and not a full paper-exact case-study archive.
 
-This repository currently focuses on reusable method components for:
+The repository currently provides:
 
-- baseline background preparation
-- scenario-consistent prospective background construction
-- displaced-market definition
-- marginal-supplier mix construction
-- explicit substitution-rule implementation
-- deterministic post-processing and audit logging
+- public, reusable method code
+- public schemas and example tables
+- public Step 3 market-register logic
+- public Step 4A/4B structural Brightway scaffolding
+- deterministic post-processing logic for paper-facing indicators and diagnostics
 
-This repository does **not** include:
+The repository does **not** redistribute:
 
-- the case-study implementation
-- submitted supplementary-information resources
-- licensed background databases
-- imported ecoinvent databases
-- premise-generated Brightway databases
-- private IAM files or credentials
-- local probes, scratch files, exports, and setup helpers
-- uncertainty propagation and sensitivity workflows outside the deterministic methods scope
+- ecoinvent databases
+- premise-generated databases
+- exact licensed provider mappings
+- exact case-study exchange-edit logs derived from licensed databases
+- private IAM credentials or local machine paths
 
-## Structure
+## Public-safe Step 4 policy
 
-```text
-framework/
-  backgrounds/
-  market_definition/
-  marginal_supplier_logic/
-  foreground_routes/
-  substitution_rules/
-  postprocess/
-  schemas/
-  examples/
+The public Step 4 layer uses **generic role identifiers** and **placeholder/provider-role objects** rather than publishing exact licensed provider codes.
 
-env/
-docs/
-```
+Examples:
+- `AL_RECYCLING_BURDEN_PROXY_CA`
+- `FSC_CONSOLIDATION_BURDEN_PROXY_CA`
+- `MM_AL_BILLET_CA_2025`
 
-## Methods logic
+If a user wants a full local rerun against licensed databases, they should create a local, untracked provider-resolution table that maps these public-safe role identifiers to exact internal `(database, code)` providers on their machine.
 
-### Step 1 — baseline background preparation
+## What Step 4 currently proves
 
-Step 1 establishes the baseline background context used as the contemporary reference background system. In the current implementation, this includes:
+The current Step 4 scaffold proves that:
 
-- rebuilding a version-aligned biosphere database
-- importing the contemporary consequential background through Brightway's official ecoinvent release importer
+- Step 3 market logic can be materialized into valid Brightway foreground objects
+- foreground route activities can be constructed around those market proxies
+- the resulting graph can be written and can solve an LCI structurally
 
-### Step 2 — scenario-consistent prospective background construction
+The current Step 4 scaffold does **not yet** prove that:
 
-Step 2 constructs deterministic prospective backgrounds using premise. In the current implementation, this includes:
+- exact licensed burden providers have been resolved
+- nonzero biosphere exchanges are present for all route activities
+- full LCIA-ready case-study activities have been reproduced exactly
 
-- configuration-driven scenario specification
-- prospective background construction for the selected IAM / pathway / year / foresight mode
-- versioning and manifest generation
-- freeze and audit routines
-- optional relinking and inspection utilities for downstream methodological work
+## Post-processing layer
 
-### Step 3 — displaced-product markets and marginal supplier mixes
+The deterministic indicator and interpretation layer remains separate from Step 4 construction.
 
-Step 3 is designed as a **register-driven layer** rather than a hard-coded case-study script set.
+That layer includes:
+- climate-change / GWP summaries
+- midpoint screening
+- sign-consistency and reversal checks
+- break-even credit scaling
+- dominance-ratio diagnostics
 
-Planned implementation:
-- machine-readable displaced-market register
-- machine-readable supplier-candidate table
-- trend-input tables
-- marginal-mix rule tables
-- support for:
-  - inherited background mixes
-  - CRR-style screening
-  - Weidema-style heuristic screening
-  - proxy-provider representations
+Step 4C assumes that a user's local Brightway project already has a functioning LCIA method setup. Step 4D can be used independently when numeric route-level results are already available.
 
-### Step 4 — foreground routes and explicit Module D
+These are important paper-facing outputs, but they are **not substitutes** for exact provider-linked Step 4 foreground construction.
 
-Step 4 is designed as a **route-wrapper and substitution-execution layer**.
+## Public intent of Step 4
 
-Planned implementation:
-- route register
-- route parameter table
-- route process map
-- equivalence rules
-- explicit Module D application
-- embedded-credit stripping / neutralization
-- auditable claim logs
+The public repository does not claim a full foreground rebuild for every possible case study.
 
-## External dependencies
+Instead, it provides:
+- a generic Step 3 market-definition layer
+- a generic Step 4 foreground construction pattern
+- public-safe examples showing how market activities, foreground route activities, LCIA runs, and diagnostics fit together
 
-This repository builds on external tools and datasets but does not claim authorship of them.
+Exact case-study foreground recreation remains local-only and depends on the user's own licensed background access, local provider mappings, and route-specific implementation choices.
 
-Dependencies include:
-- Brightway
-- premise
-- ecoinvent
-- IAM source data
+## Archive boundary
 
-The repository provides orchestration, configuration, validation, and audit logic around those dependencies.
-
-## ecoinvent and IAM setup
-
-### ecoinvent
-The baseline contemporary import uses Brightway's official ecoinvent release importer.
-Users must provide valid ecoinvent access credentials through either:
-- `EI_USERNAME` and `EI_PASSWORD` environment variables, or
-- a working local `ecoinvent_interface` configuration
-
-The licensed ecoinvent database itself is **not redistributed** in this repository.
-
-### premise and IAM access
-Prospective background construction is implemented through `premise`.
-If your local workflow requires an IAM access key, define it through the variable named in the YAML config, for example:
-- `PREMISE_KEY`
-
-Do not store credentials or keys in tracked repository files.
-
-## Environment
-
-See `env/environment.yml` for the tested repository-development environment.
-
-## Local-only testing and runs
-
-Local-only probes, scratch files, exports, and run outputs should live under `_local/`, which is gitignored.
-
-Recommended subfolders:
-- `_local/tests/`
-- `_local/runs/`
-- `_local/logs/`
-- `_local/scratch/`
-- `_local/setup/`
-
-## Reproducibility boundary
-
-A reader with:
-- this repository
-- the documented software environment
-- licensed access to the required external background datasets
-- and the required IAM inputs where applicable
-
-should be able to reconstruct the deterministic methods workflow documented here.
-
-## Citation
-
-Please cite:
-1. the associated journal paper, where relevant
-2. the DOI-minted repository release for the exact archived version used
-
-See `CITATION.cff` for the repository citation record.
+This repository is a methods scaffold and **not a complete case-study rerun archive**. The article-specific supplementary resources remain the journal-facing case-study record, while this repository provides reusable workflow templates, public-safe examples, and methodological scaffolding.
