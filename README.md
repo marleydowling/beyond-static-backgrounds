@@ -84,3 +84,7 @@ Exact case-study foreground recreation remains local-only and depends on the use
 ## Archive boundary
 
 This repository is a methods scaffold and **not a complete case-study rerun archive**. The article-specific supplementary resources remain the journal-facing case-study record, while this repository provides reusable workflow templates, public-safe examples, and methodological scaffolding.
+
+## Archived software release
+
+This repository has an archived software release with DOI: 10.5281/zenodo.20834341.

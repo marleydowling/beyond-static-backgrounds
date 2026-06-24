@@ -25,4 +25,4 @@ Repository URL: https://github.com/marleydowling/beyond-static-backgrounds
 
 ## Release policy
 
-Each manuscript-cited version may be tagged and archived through a release workflow chosen by the author. Where a DOI-backed software archive is created, the manuscript should cite the exact archived release used for the paper.
+Each manuscript-cited version may be tagged and archived through a release workflow chosen by the author. The archived software release associated with this repository is DOI: 10.5281/zenodo.20834341. Where a later DOI-backed software archive is created for a new version, the manuscript should cite the exact archived release used for the paper.
